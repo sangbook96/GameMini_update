@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/background3"
+    android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60pt"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/tableRow3"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="60pt"
+            android:background="@drawable/xephangdong"
+            android:layout_height="60pt"
+             />
+
+        <TextView
+            android:id="@+id/txtHgihScoreDong"
+            android:layout_width="match_parent"
+            android:textSize="20pt"
+            android:gravity="center"
+            android:textColor="#ff0090"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="0" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60pt"
+        android:layout_marginTop="63dp"
+        android:id="@+id/tableRow2"
+        android:layout_below="@+id/txt_Hight_Score"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:background="@drawable/xephangvang"
+            android:layout_width="60pt"
+            android:layout_height="60pt"
+             />
+
+        <TextView
+            android:id="@+id/txtHgihScoreVang"
+            android:layout_width="match_parent"
+            android:textSize="20pt"
+            android:textColor="#ff0090"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:text="0" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/txt_Hight_Score"
+        android:layout_width="match_parent"
+        android:layout_height="30pt"
+        android:gravity="center"
+        android:text="High Score"
+        android:textColor="#bb00ff"
+        android:textSize="20pt" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="60pt"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/tableRow2"
+        android:layout_alignParentStart="true"
+        android:id="@+id/tableRow3">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="60pt"
+            android:background="@drawable/xephangbac"
+            android:layout_height="60pt"
+             />
+
+        <TextView
+            android:id="@+id/txtHgihScoreBac"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textColor="#ff0090"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="20pt" />
+    </TableRow>
+
+
+</RelativeLayout>

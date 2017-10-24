@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    tools:context="com.example.st.gamemini.Toan.Main.MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/kidsmathtext"
+        android:layout_height="80pt"
+        android:id="@+id/imageView" />
+    <ImageView
+        android:id="@+id/imgLatHinh"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/math_memory"
+        android:background="@drawable/state_list"
+        android:layout_marginRight="8pt"
+        android:layout_marginStart="10dp"
+        android:layout_alignTop="@+id/imgGiaiToan"
+        android:layout_alignStart="@+id/btShare" />
+
+    <ImageView
+        android:id="@+id/imgGiaiToan"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/sum_finder"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignEnd="@+id/btRate" />
+    <ImageView
+        android:id="@+id/imgHighScore_Main"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/high_score"
+        android:layout_marginLeft="8dp"
+        android:layout_above="@+id/btRate"
+        android:layout_alignEnd="@+id/btRate"
+        android:layout_marginBottom="56dp" />
+    <!--ImageView
+        android:id="@+id/imgHighScore"
+        android:layout_width="60pt"
+        android:layout_height="60pt"
+        app:srcCompat="@drawable/high_score"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8pt"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/imgLatHinh"
+        android:layout_centerHorizontal="true" />-->
+
+    <Button
+        android:id="@+id/btShare"
+        android:layout_width="50pt"
+        android:layout_height="20pt"
+        android:text="Share"
+        android:layout_marginLeft="3pt"
+        android:background="@drawable/btn_back"
+        android:layout_marginRight="8pt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btRate"
+        android:layout_width="50pt"
+        android:layout_height="20pt"
+        android:background="@drawable/btn_back"
+        android:text="Rate"
+        android:layout_marginRight="8pt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_game">
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bar_background"
+        android:gravity="center"
+        android:text="Level"
+        android:textColor="#fefffe"
+        android:textSize="10pt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/BestScore"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bar_background"
+        android:gravity="center"
+        android:text="Best"
+        android:textColor="#fefffe"
+        android:textSize="10pt"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Score"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginLeft="101dp"
+        android:layout_marginRight="101dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bar_background"
+        android:gravity="center"
+        android:text="Score"
+        android:textColor="#fefffe"
+        android:textSize="10pt"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toRightOf="@+id/level"
+        app:layout_constraintRight_toLeftOf="@+id/BestScore"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtlevel"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="#0170f9"
+        android:textSize="11pt"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level" />
+
+    <TextView
+        android:id="@+id/txtBestScore"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#0073ff"
+        android:textSize="11pt"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BestScore" />
+
+    <TextView
+        android:id="@+id/sc"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="101dp"
+        android:layout_marginLeft="101dp"
+        android:layout_marginRight="101dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#0170f9"
+        android:textSize="11pt"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintLeft_toRightOf="@+id/txtlevel"
+        app:layout_constraintRight_toLeftOf="@+id/txtBestScore"
+        app:layout_constraintTop_toBottomOf="@+id/Score"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtRandom"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/target2"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#1e00ff"
+        android:textSize="12pt"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sc" />
+
+    <ProgressBar
+        android:id="@+id/progess"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp"
+        android:progressDrawable="@drawable/custom_progessbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRandom" />
+
+</android.support.constraint.ConstraintLayout>
