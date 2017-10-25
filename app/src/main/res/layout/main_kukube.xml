@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/background3"
+    android:layout_height="match_parent">
+    <include layout="@layout/include_bar_kukube"></include>
+
+    <GridView
+        android:id="@+id/gridkukube"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:columnWidth="4dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginTop="90dp" />
+
+</RelativeLayout>

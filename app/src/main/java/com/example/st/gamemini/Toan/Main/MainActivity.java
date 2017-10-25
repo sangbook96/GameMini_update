@@ -10,12 +10,13 @@ import android.widget.Toast;
 
 import com.example.st.gamemini.R;
 import com.example.st.gamemini.Toan.HightScore.main_Score;
+import com.example.st.gamemini.Toan.KuKuBe.Screen_Kukube;
 import com.example.st.gamemini.Toan.LatHinh.LatHinh;
 import com.example.st.gamemini.Toan.Toan.MainToan;
 
 
 public class MainActivity extends Activity {
-    ImageView imgLatHinh,imgGiaiToan,imgHighScore;
+    ImageView imgLatHinh,imgGiaiToan,imgHighScore,imgKukube;
     Button btShare,btRate;
     public void KhoiTao(){
        /* Bitmap bitmap= BitmapFactory.decodeResource(this.getResources(), R.drawable.lathinh);
@@ -27,11 +28,14 @@ public class MainActivity extends Activity {
         imgLatHinh=(ImageView)findViewById(R.id.imgLatHinh);
         imgGiaiToan=(ImageView)findViewById(R.id.imgGiaiToan);
         imgHighScore=(ImageView)findViewById(R.id.imgHighScore_Main);
+        imgKukube=(ImageView)findViewById(R.id.imgkukube);
         btShare=(Button)findViewById(R.id.btShare);
         btRate=(Button)findViewById(R.id.btRate);
         imgLatHinh.setImageResource(R.drawable.math_memory);
         imgGiaiToan.setImageResource(R.drawable.sum_finder);
         imgHighScore.setImageResource(R.drawable.high_score);
+        imgKukube.setImageResource(R.drawable.lathinh);
+
        /* imgLatHinh.setImageBitmap(circularBitmap);
         imgGiaiToan.setImageBitmap(circularBitmap1);
         imgHighScore.setImageBitmap(circularBitmap2);*/
@@ -55,6 +59,13 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(getApplication(), main_Score.class);
+                startActivity(in);
+            }
+        });
+        imgKukube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getApplication(), Screen_Kukube.class);
                 startActivity(in);
             }
         });

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.st.gamemini.Toan.KuKuBe.textView_1
+        android:id="@+id/txtItemKukukube"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="2dp"
+        android:textStyle="bold"
+        android:textSize="13pt"
+        android:textColor="#2b8cf9"
+        android:background="@drawable/b"
+        android:gravity="center"
+         />
+</LinearLayout>

@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:src="@drawable/kidsmathtext"
-        android:layout_height="80pt"
+        android:layout_height="60pt"
         android:id="@+id/imageView" />
     <ImageView
         android:id="@+id/imgLatHinh"
@@ -71,6 +71,14 @@
         android:layout_marginRight="8pt"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/imgkukube"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/lathinh"
+        android:layout_alignTop="@+id/imgHighScore_Main"
+        android:layout_alignStart="@+id/imgLatHinh" />
 
 
 </RelativeLayout>

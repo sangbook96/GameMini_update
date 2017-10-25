@@ -21,6 +21,7 @@
         <activity android:name=".Toan.Toan.MainToan"></activity>
         <activity android:name=".Toan.LatHinh.Screen_Hinh"></activity>
         <activity android:name=".Toan.HightScore.main_Score"></activity>
+        <activity android:name=".Toan.KuKuBe.Screen_Kukube"></activity>
     </application>
 
 </manifest>
