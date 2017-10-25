@@ -48,6 +48,7 @@ public class Screen_Kukube extends Activity {
         public void onTick(long millisUntilFinished) {
             txtimer.setText(millisUntilFinished / 100 + "");
         }
+
         @Override
         public void onFinish() {
             doSave();
@@ -81,8 +82,9 @@ public class Screen_Kukube extends Activity {
         Level();
         adp = new adapter_kukube(this, R.layout.item_kukube, arr);
         gridKukube.setAdapter(adp);
-        txtScore.setText(String.valueOf(diem));
+        playSoundBackground();
         adp.notifyDataSetChanged();
+        txtScore.setText(String.valueOf(diem));
     }
 
     public void Level() {
@@ -92,6 +94,7 @@ public class Screen_Kukube extends Activity {
         } else {
             gridKukube.setNumColumns(diem / 10 + 2);
             soO = (diem / 10 + 2) * (diem / 10 + 2);
+
         }
         arr = new ArrayList<String>(t.taoBangMau(soO));
     }
@@ -101,6 +104,7 @@ public class Screen_Kukube extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == t.dapAn) {
+                    diem++;
                     countDownTimer.start();
                     setDuLieu();
                     playSoundHint();
@@ -108,6 +112,7 @@ public class Screen_Kukube extends Activity {
             }
         });
     }
+
     //Lưu điểm
     //được gọi khi người dùng lưu điểm
     public void doSave() {
@@ -116,13 +121,14 @@ public class Screen_Kukube extends Activity {
         sharedPreferences = getSharedPreferences("HighScoreKukuKuBe", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (Integer.valueOf((String) txtBestScore.getText()) < Integer.valueOf((String) txtScore.getText())) {
-            editor.putInt("Score", Integer.valueOf(txtScore.getText().toString().trim()));
+            editor.putInt("Score", diem);
             Toast.makeText(this, "Điểm Cao!", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(this, "Điểm của bạn!", Toast.LENGTH_SHORT).show();
         }
         editor.apply();
     }
+
     //load các giá trị đã lưu
     public void loadSave() {
         sharedPreferences = getSharedPreferences("HighScoreKukuKuBe", Context.MODE_PRIVATE);
@@ -131,6 +137,7 @@ public class Screen_Kukube extends Activity {
             this.txtBestScore.setText(diemcao);
         }
     }
+
     //xử lí sound trong game.
     public void music() {
         // Đối tượng AudioManager sử dụng để điều chỉnh âm lượng.
@@ -179,11 +186,11 @@ public class Screen_Kukube extends Activity {
 
         // Tải file nhạc tiếng gameover! vào SoundPool.
         this.soundIdGameOver = this.soundPool.load(this, R.raw.gameover1, 1);
-        this.soundIdWin = this.soundPool.load(this, R.raw.winning, 1);
+        this.soundIdWin = this.soundPool.load(this, R.raw.soundbackground, 1);
         // Tải file nhạc tiếng good vào SoundPool.
         this.soundIdGood = this.soundPool.load(this, R.raw.good1, 1);
         //Tải file nhạc ẩn hiện vào soundPool
-        this.soundIDHind = this.soundPool.load(this, R.raw.hintsound, 1);
+        this.soundIDHind = this.soundPool.load(this, R.raw.click, 1);
         this.soundIDTryAgain = this.soundPool.load(this, R.raw.tryagain2, 1);
 
     }
@@ -208,6 +215,7 @@ public class Screen_Kukube extends Activity {
         }
     }
 
+
     // Khi người dùng thua cuộc.
     public void playSoundGameOver() {
         if (loaded) {
@@ -220,7 +228,7 @@ public class Screen_Kukube extends Activity {
         }
     }
 
-    public void playSoundWin() {
+    public void playSoundBackground() {
         if (loaded) {
             float leftVolumn = volume;
             float rightVolumn = volume;

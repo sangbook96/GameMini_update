@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         imgLatHinh.setImageResource(R.drawable.math_memory);
         imgGiaiToan.setImageResource(R.drawable.sum_finder);
         imgHighScore.setImageResource(R.drawable.high_score);
-        imgKukube.setImageResource(R.drawable.lathinh);
+        imgKukube.setImageResource(R.drawable.iconkukube2);
 
        /* imgLatHinh.setImageBitmap(circularBitmap);
         imgGiaiToan.setImageBitmap(circularBitmap1);
