@@ -24,8 +24,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import static com.example.st.gamemini.R.drawable.b;
-
 /**
  * Created by ST on 9/14/2017.
  */
@@ -61,13 +59,14 @@ public class MainToan extends Activity {
     private boolean loaded;
     private int soundIdGameOver, soundIDTryAgain, soundIdWin, soundIdGood, soundIDHind;
     private float volume;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_toan);
         help = new CongCuHoTro();
         khoiTao();
-        Time(100000,1000);
+        Time(100000, 1000);
         music();
         myCountDownTimer.start();
         adp = new adapter_toan(this, R.layout.item_toan, arr);
@@ -75,9 +74,11 @@ public class MainToan extends Activity {
         randomKQ();
         adp.notifyDataSetChanged();
     }
-    public void onStart(){
+
+    public void onStart() {
         super.onStart();
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -108,7 +109,8 @@ public class MainToan extends Activity {
     public void addNumber(int a, int b) {
         for (int i = 0; i < 36; i++) {
             arr.add(new toan(ranRom(a, b), false, false));
-            diemTongMatrix += arr.get(i).getNumber();//trả về điểm tổng
+            diemTongMatrix += arr.get(i).getNumber();
+            Log.d("Trả về điểm tổng", String.valueOf(diemTongMatrix));
         }
     }
 
@@ -128,7 +130,7 @@ public class MainToan extends Activity {
                     AddDiem(b, check);
                     if (diem == diemRanrom) {
                         checkView = true;
-                        //thiết lập các giá trị trong number về 0.
+
                         for (int i = 0; i < arr.size(); i++) {
                             if (arr.get(i).isSelected() == true) {
                                 arr.get(i).setSelectedView(checkView);
@@ -151,32 +153,7 @@ public class MainToan extends Activity {
                     check = false;
                     arr.get(position).setSelected(check);
                     int c = arr.get(position).getNumber();
-                    AddDiem(b, check);
-                    //adp.notifyDataSetChanged();
-                    //
-                    /*if (diem == diemRanrom) {
-                        checkView = true;
-                        //thiết lập các giá trị trong number về 0.
-                        for (int i = 0; i < arr.size(); i++) {
-                            if (arr.get(i).isSelected() == true) {
-                                arr.get(i).setSelectedView(checkView);
-                                //thiết lập các item bằng 0.
-                                arr.get(i).setNumber(0);
-                                playSoundHint();
-                            }
-                        }
-                        randomKQ();
-                        diem = 0;
-                        //nếu điểm tổng các ô đã mất bằng điểm tổng số ô khi add vào arr thì nextgame
-                        if (diemScore == diemTongMatrix) {
-                            playSoundWin();
-                            NextGame();
-                            randomKQ();
-                            loadSave();
-                        }
-                        adp.notifyDataSetChanged();
-                    }*/
-                    adp.notifyDataSetChanged();
+                    AddDiem(c, check);
                 }
                 adp.notifyDataSetChanged();
             }
@@ -189,12 +166,20 @@ public class MainToan extends Activity {
         arr1.add(a);
         if (check == true) {
             diem += a;
-            if (diem != diemRanrom) {
+            if (diem < diemRanrom) {
                 Log.d("", "Kết quả chưa đúng");
-            } else {
+            }
+            if (diem == diemRanrom) {
                 Log.d("", "Kết quả đúng");
                 diemScore += diem;
                 txtScore.setText(String.format("" + diemScore));
+            } else {
+                if (diem > diemRanrom) {
+                    checkAdd=false;
+                    adp.notifyDataSetChanged();
+
+                }
+
 
             }
 
@@ -253,7 +238,7 @@ public class MainToan extends Activity {
     }
 
     public void NextGame() {
-        int a=200000,b=1000;
+        int a = 200000, b = 1000;
         for (int i = 0; i < arr.size(); i++) {
             arr.get(i).setSelected(false);
             arr.get(i).setSelectedView(false);
@@ -262,7 +247,7 @@ public class MainToan extends Activity {
         arr2.clear();
         myCountDownTimer.cancel();
         progressBar.setProgress(0);
-        Time(200000,2000);
+        Time(200000, 2000);
         myCountDownTimer.start();
         //tăng các phần tử thêm vào lên 1 từ vị trí 1-4->2-5
         number1++;
@@ -274,7 +259,7 @@ public class MainToan extends Activity {
 
             if (numer2 > 99) {
                 number1++;
-                numer2=number1+4;
+                numer2 = number1 + 4;
                 addNumber(number1, numer2);
             }
         }
@@ -317,12 +302,11 @@ public class MainToan extends Activity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         if (Integer.valueOf((String) txtHighSocre.getText()) < Integer.valueOf((String) txtScore.getText())) {
             editor.putInt("Score", Integer.valueOf(txtScore.getText().toString().trim()));
-            Toast.makeText(this, "Điểm Cao!", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(this, "Điểm của bạn!", Toast.LENGTH_SHORT).show();
+
         }
         editor.apply();
     }
+
     //load các giá trị đã lưu
     public void loadSave() {
         sharedPreferences = getSharedPreferences("HighScore1", Context.MODE_PRIVATE);
@@ -331,6 +315,7 @@ public class MainToan extends Activity {
             this.txtHighSocre.setText(diemcao);
         }
     }
+
     //xử lí sound trong game.
     public void music() {
         // Đối tượng AudioManager sử dụng để điều chỉnh âm lượng.

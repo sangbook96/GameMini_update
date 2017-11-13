@@ -22,6 +22,8 @@
         <activity android:name=".Toan.LatHinh.Screen_Hinh"></activity>
         <activity android:name=".Toan.HightScore.main_Score"></activity>
         <activity android:name=".Toan.KuKuBe.Screen_Kukube"></activity>
+        <activity android:name=".Toan.FreakingMath.Main_FreakingMath"></activity>
+        <service android:name=".Toan.CaiDat.BackgroundAudioService"></service>
     </application>
 
 </manifest>

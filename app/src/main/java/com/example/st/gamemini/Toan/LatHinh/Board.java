@@ -12,10 +12,10 @@ import java.util.Random;
  */
 
 public class Board {
-    protected ArrayList<Hinh>arr=new ArrayList<Hinh>();
-    protected int luotClick=0,maxitem=0;
-    protected int getpos=-1,kiemtra=-1,soHang=0,sumItem,diem=0,diemcao;
-    protected Random rd=new Random();
+    protected ArrayList<Hinh> arr = new ArrayList<Hinh>();
+    protected int luotClick = 0, maxitem = 0;
+    protected int getpos = -1, kiemtra = -1, soHang = 0, sumItem, diem = 0, diemcao;
+    protected Random rd = new Random();
     protected int[] mangHinh = new int[]{
             R.drawable.animals_1, R.drawable.animals_2,
             R.drawable.animals_3, R.drawable.animals_4,
@@ -32,6 +32,7 @@ public class Board {
             R.drawable.animals_25, R.drawable.animals_26,
             R.drawable.animals_27, R.drawable.animals_28,
     };
+
     public ArrayList<Hinh> random(int b) {
         int temp = 0;
         //thêm toàn bộ các phần tử vào list (tạo mảng tạm)
@@ -48,19 +49,22 @@ public class Board {
             list.remove(temp);
         }
         Collections.shuffle(arr);//xáo trộn các item
-        maxitem=arr.size()+4;
+        maxitem = arr.size() + 4;
         return arr;
     }
+
     public void Level(int soHang) {
 
-        int soCot=0;
-        soCot=(soHang*soHang)/2;
-        int b = 0;random(soCot);
-        if (soHang>2&&soHang%2==0){
-            soCot=soHang*soHang;
-        }else if (soHang>2&&soHang%2!=0){
-            soCot=soHang*2+soHang;
-        }
+        int soCot = 0;
+        soCot = (soHang * soHang) / 2;
+        int b = 0;
+        random(soCot);
+        /*
+        if (soHang > 2 && soHang % 2 == 0) {
+            soCot = soHang * soHang;
+        } else if (soHang > 2 && soHang % 2 != 0) {
+            soCot = soHang * 2 + soHang;
+        }*/
 
     }
     /*public void KiemTra(int postion) {

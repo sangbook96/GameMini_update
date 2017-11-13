@@ -33,6 +33,7 @@ public class Screen_Hinh extends Activity {
     adapter_Hinh adp;
     GridView grd;
     Button btShow;
+
     boolean check = false;
     TextView txtHint, txtScoreHinh, txtLevel,txtDiemCao1;
     int hang = 2, level = 1;
@@ -41,6 +42,7 @@ public class Screen_Hinh extends Activity {
     final Handler handler = new Handler();
     Animation animation;
     Board b;
+    int soLanShowButton=4;
     int DiemScore=0;int diemcao=0;
     //sound
     private SoundPool soundPool;
@@ -158,6 +160,7 @@ public class Screen_Hinh extends Activity {
                                 b.luotClick = 0;
                                 hang = hang + 2;
                                 KhoiTao(hang);
+                                soLanShowButton=hang;
                                 level = level + 1;
                                 txtLevel.setText(String.valueOf(level));
                                 txtScoreHinh.setText(String.valueOf(b.maxitem));
@@ -181,40 +184,47 @@ public class Screen_Hinh extends Activity {
     }
 
     public void ShowButton() {
+
         btShow.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Toast.makeText(Screen_Hinh.this, "bt click", Toast.LENGTH_SHORT).show();
+                soLanShowButton = soLanShowButton - 1;
+                //Sau 4s sẽ ẩn các item
+                if (soLanShowButton > 0) {
 
-                //Sau 6s sẽ ẩn các item
-                playSoundHint();
-                cdt = new CountDownTimer(4000, 1000) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        check = true;
-                        for (int i = 0; i < b.arr.size(); i++) {
-                            b.arr.get(i).setSelected(check);
-                            Log.d("Thông báo", "");
+                    playSoundHint();
+                    cdt = new CountDownTimer(4000, 1000) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            check = true;
+                            for (int i = 0; i < b.arr.size(); i++) {
+                                b.arr.get(i).setSelected(check);
+                                Log.d("Thông báo", "");
+                            }
+                            btShow.setVisibility(View.INVISIBLE);
+                            txtHint.setVisibility(View.VISIBLE);
+                            txtHint.setText(String.valueOf(millisUntilFinished / 1000) + " s");
+                            adp.notifyDataSetChanged();
                         }
-                        btShow.setVisibility(View.INVISIBLE);
-                        txtHint.setVisibility(View.VISIBLE);
-                        txtHint.setText(String.valueOf(millisUntilFinished / 1000) + " s");
-                        adp.notifyDataSetChanged();
-                    }
-                    @Override
-                    public void onFinish() {
-                        check = false;
-                        for (int i = 0; i < b.arr.size(); i++) {
-                            b.arr.get(i).setSelected(check);
-                            Log.d("Thông báo", "");
-                        }
-                        btShow.setVisibility(View.VISIBLE);
-                        txtHint.setVisibility(View.INVISIBLE);
-                        adp.notifyDataSetChanged();
-                        playSoundHint();
-                    }
 
-                }.start();
+                        @Override
+                        public void onFinish() {
+                            check = false;
+                            for (int i = 0; i < b.arr.size(); i++) {
+                                b.arr.get(i).setSelected(check);
+                                Log.d("Thông báo", "");
+                            }
+                            btShow.setVisibility(View.VISIBLE);
+                            txtHint.setVisibility(View.INVISIBLE);
+                            adp.notifyDataSetChanged();
+                            playSoundHint();
+                        }
+
+                    }.start();
+                }else if (soLanShowButton==0){
+                    Toast.makeText(Screen_Hinh.this, "Bạn đã hết số lần hiển thị!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -246,6 +256,7 @@ public class Screen_Hinh extends Activity {
                 in.putExtra("TruyenDuLieu",Integer.parseInt(String.valueOf(b.diem)));
                 Toast.makeText(Screen_Hinh.this, ""+b.diem, Toast.LENGTH_SHORT).show();
                 startActivity(in);
+                finish();
 
             }
         });

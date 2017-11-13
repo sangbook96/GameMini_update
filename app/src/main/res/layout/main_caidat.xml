@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:id="@+id/checkBoxBatAm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:checked="false"
+        android:layout_marginTop="152dp"
+        android:text="Bật Âm" />
+
+    <CheckBox
+        android:id="@+id/checkboxTatAm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/checkBoxBatAm"
+        android:layout_below="@+id/checkBoxBatAm"
+        android:checked="true"
+        android:layout_marginTop="50dp"
+        android:text="Tắt Âm" />
+
+    <TextView
+        android:id="@+id/txtPhienBan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
+        android:text="Phiên bản 1.0"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/checkboxTatAm" />
+
+    <Button
+        android:id="@+id/btApplyCaiDat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply"
+        android:layout_below="@+id/checkboxTatAm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="117dp" />
+</RelativeLayout>

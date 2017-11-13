@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.st.gamemini.R;
+import com.example.st.gamemini.Toan.HightScore.main_Score;
 
 /**
  * Created by ST on 23/08/2017.
@@ -37,6 +38,8 @@ public class LatHinh extends Activity {
         btXepHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent in=new Intent(LatHinh.this,main_Score.class);
+                startActivity(in);
                 Toast.makeText(LatHinh.this, "Xếp hạng", Toast.LENGTH_SHORT).show();
             }
         });
